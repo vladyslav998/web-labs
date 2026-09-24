@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Дослідницькі завдання лабораторної роботи №3: семантичний HTML, ієрархія заголовків, метадані та базове SEO."
+    />
+    <meta name="theme-color" content="#101016" />
+    <title>Дослідницькі завдання: HTML та SEO · ЛР-3</title>
+    <link rel="stylesheet" href="../site.css" />
+    <link rel="stylesheet" href="experiments-lab3.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Перейти до основного вмісту</a>
+
+    <header class="site-header">
+      <div class="site-shell site-header__inner">
+        <a class="site-brand" href="../index.html">Web Development</a>
+        <nav class="site-nav" aria-label="Основна навігація">
+          <ul class="site-nav__list">
+            <li><a href="../index.html">Усі лабораторні</a></li>
+            <li><a href="index.html">Лабораторна 2–3</a></li>
+            <li><a href="experiments-lab3.html" aria-current="page">Дослідження ЛР-3</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-shell site-main" id="main-content">
+      <article class="research-report">
+        <header class="page-intro">
+          <p class="eyebrow">Лабораторна робота · 03</p>
+          <h1>Дослідницькі завдання</h1>
+          <p>
+            Семантичний HTML, логічна структура заголовків, метадані сторінки та базове on-page SEO.
+          </p>
+        </header>
+
+        <nav class="report-toc" aria-label="Зміст дослідницької роботи">
+          <h2>У цьому звіті</h2>
+          <ol>
+            <li><a href="#semantic-html">Семантичний HTML та структура документа</a></li>
+            <li><a href="#heading-hierarchy">Заголовки та ієрархія контенту</a></li>
+            <li><a href="#metadata">HTML head та метадані сторінки</a></li>
+            <li><a href="#seo-content">SEO-контент: текст, посилання та зображення</a></li>
+            <li><a href="#ai-audit">AI-assisted аудит HTML та SEO</a></li>
+          </ol>
+        </nav>
+
+        <section aria-labelledby="research-heading">
+          <h2 id="research-heading">4. Дослідницькі завдання</h2>
+
+          <section class="report-section" id="semantic-html" aria-labelledby="semantic-heading">
+            <h3 id="semantic-heading">4.1. Семантичний HTML та структура документа</h3>
+            <p>
+              Порівняємо нейтральні контейнери з елементами, які називають призначення частин
+              сторінки.
+            </p>
+
+            <div class="code-comparison">
+              <figure class="code-example">
+                <figcaption>Нейтральні блоки без семантики</figcaption>
+                <pre><code>&lt;div class="header"&gt;...&lt;/div&gt;
+&lt;div class="main"&gt;...&lt;/div&gt;
+&lt;div class="footer"&gt;...&lt;/div&gt;</code></pre>
+              </figure>
+              <figure class="code-example">
+                <figcaption>Семантичні елементи</figcaption>
+                <pre><code>&lt;header&gt;...&lt;/header&gt;
+&lt;main&gt;...&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+              </figure>
+            </div>
+
+            <p>
+              На екрані обидва варіанти можуть виглядати однаково, якщо CSS однаковий. Семантична
+              структура явно передає призначення блоків через HTML-елементи. Вона також дає
+              допоміжним технологіям зрозумілі орієнтири для навігації сторінкою.
+            </p>
+          </section>
+
+          <section class="report-section" id="heading-hierarchy" aria-labelledby="heading-heading">
+            <h3 id="heading-heading">4.2. Заголовки та ієрархія контенту</h3>
+            <p>
+              Заголовки мають відображати структуру тем і підтем, а не лише бажаний розмір шрифту.
+            </p>
+            <figure class="code-example">
+              <figcaption>Послідовна ієрархія</figcaption>
+              <pre><code>H1 — основна тема сторінки
+  H2 — перший розділ
+    H3 — підрозділ
+    H3 — підрозділ
+  H2 — другий розділ</code></pre>
+            </figure>
+            <p>
+              У структурі <code>H1 → H4 → H2</code> порушується логічна ієрархія: після основного
+              заголовка одразу з'являється заголовок нижчого рівня, а потім повернення до вищого.
+              Через це структура контенту стає менш зрозумілою для користувача та допоміжних
+              технологій.
+            </p>
+          </section>
+
+          <section class="report-section" id="metadata" aria-labelledby="metadata-heading">
+            <h3 id="metadata-heading">4.3. HTML <code>&lt;head&gt;</code> та метадані сторінки</h3>
+            <p>Загальні метадані поступаються опису, який точно називає зміст сторінки.</p>
+            <div class="code-comparison">
+              <figure class="code-example">
+                <figcaption>Загальні метадані</figcaption>
+                <pre><code>&lt;title&gt;Pricing&lt;/title&gt;
+&lt;meta name="description" content="Pricing page"&gt;</code></pre>
+              </figure>
+              <figure class="code-example">
+                <figcaption>Інформативніші метадані</figcaption>
+                <pre><code>&lt;title&gt;SaaS Pricing Plans - Basic, Pro and Enterprise&lt;/title&gt;
+&lt;meta name="description"
+  content="Compare Basic, Pro and Enterprise SaaS pricing plans
+  and choose a plan for your team."&gt;</code></pre>
+              </figure>
+            </div>
+            <p>
+              Другий варіант одразу пояснює, про що сторінка та які плани на ній представлені. Він
+              інформативніший для користувача й пошукової системи.
+            </p>
+          </section>
+
+          <section class="report-section" id="seo-content" aria-labelledby="seo-heading">
+            <h3 id="seo-heading">4.4. SEO-контент: текст, посилання та зображення</h3>
+            <p>
+              Текст посилання має пояснювати призначення переходу, а альтернативний текст — зміст
+              зображення.
+            </p>
+
+            <h4>Зрозумілий текст посилання</h4>
+            <div class="code-comparison">
+              <figure class="code-example">
+                <figcaption>Нечіткий текст</figcaption>
+                <pre><code>&lt;a href="/plans"&gt;Click here&lt;/a&gt;</code></pre>
+              </figure>
+              <figure class="code-example">
+                <figcaption>Текст описує ціль</figcaption>
+                <pre><code>&lt;a href="/plans"&gt;Compare our pricing plans&lt;/a&gt;</code></pre>
+              </figure>
+            </div>
+            <p>
+              Другий текст точніше пояснює, куди веде посилання, навіть без додаткового контексту.
+            </p>
+
+            <h4>Описове значення <code>alt</code></h4>
+            <div class="code-comparison">
+              <figure class="code-example">
+                <figcaption>Надто загальний опис</figcaption>
+                <pre><code>&lt;img src="pricing.jpg" alt="pricing plans"&gt;</code></pre>
+              </figure>
+              <figure class="code-example">
+                <figcaption>Конкретніший опис</figcaption>
+                <pre><code>&lt;img src="pricing.jpg"
+  alt="Three SaaS pricing plans: Basic, Pro and Enterprise"&gt;</code></pre>
+              </figure>
+            </div>
+            <p>
+              Другий <code>alt</code> точніше описує зображення, тому його зміст зрозуміліший
+              користувачам, які не бачать зображення, та пошуковій системі.
+            </p>
+          </section>
+
+          <section class="report-section" id="ai-audit" aria-labelledby="ai-heading">
+            <h3 id="ai-heading">4.5. AI-assisted аудит HTML та SEO</h3>
+            <p>
+              Для аналізу HTML-коду використано AI-асистента. Отримані рекомендації розглянуто з
+              погляду semantic HTML, metadata та базового on-page SEO.
+            </p>
+
+            <section aria-labelledby="ai-metadata-heading">
+              <h4 id="ai-metadata-heading">1. Metadata та базовий on-page SEO</h4>
+
+              <section class="recommendation" aria-labelledby="description-recommendation">
+                <h5 id="description-recommendation">
+                  Рекомендація 1.1 — заповнити meta description
+                </h5>
+                <p>AI запропонував додати унікальний і змістовний опис сторінки, наприклад:</p>
+                <pre><code>&lt;meta name="description"
+  content="Оберіть тарифний план Basic, Pro або Enterprise. Порівняйте ціни,
+  кількість користувачів, сховище та підтримку"&gt;</code></pre>
+                <p class="accepted"><strong>Прийнято: так.</strong></p>
+                <p>
+                  Це дає пошуковій системі короткий опис змісту сторінки. Google може використати
+                  <code>meta description</code> для формування опису сторінки в результатах пошуку.
+                </p>
+              </section>
+
+              <section class="recommendation" aria-labelledby="title-recommendation">
+                <h5 id="title-recommendation">Рекомендація 1.2 — зробити title інформативнішим</h5>
+                <p>AI запропонував замінити загальний заголовок «Тарифні плани» на конкретніший:</p>
+                <pre><code>&lt;title&gt;Тарифні плани — Basic, Pro, Enterprise | Назва сервісу&lt;/title&gt;</code></pre>
+                <p class="accepted"><strong>Прийнято: так.</strong></p>
+                <p>
+                  Такий <code>title</code> точніше описує сторінку та дає користувачу більше
+                  інформації про неї.
+                </p>
+              </section>
+
+              <h5>Позитивні моменти, відзначені AI</h5>
+              <ul>
+                <li>
+                  <code>lang="uk"</code> на <code>&lt;html&gt;</code> вказує основну мову сторінки.
+                </li>
+                <li><code>charset</code> і <code>viewport</code> задані коректно.</li>
+              </ul>
+            </section>
+
+            <section aria-labelledby="ai-language-heading">
+              <h4 id="ai-language-heading">2. Semantic HTML та мова контенту</h4>
+              <section class="recommendation" aria-labelledby="language-recommendation">
+                <h5 id="language-recommendation">Рекомендація 2.1 — узгодити мову контенту</h5>
+                <p>
+                  AI звернув увагу, що при <code>lang="uk"</code> частина тексту сторінки написана
+                  англійською: назви тарифів, характеристики та кнопки. Запропоновано один із
+                  варіантів:
+                </p>
+                <ul>
+                  <li>перекласти весь текст українською;</li>
+                  <li>або позначити англомовні частини атрибутом <code>lang="en"</code>.</li>
+                </ul>
+                <p class="accepted"><strong>Прийнято: так.</strong></p>
+                <p>
+                  Це робить мовну структуру однозначнішою та допомагає допоміжним технологіям
+                  правильно визначати мову окремих частин контенту.
+                </p>
+              </section>
+            </section>
+          </section>
+        </section>
+      </article>
+
+      <a class="back-link" href="index.html">← Назад до лабораторної роботи</a>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell site-footer__inner">
+        <p>Навчальний проєкт · Web Development</p>
+        <p>Дослідницька частина лабораторної роботи №3</p>
+      </div>
+    </footer>
+  </body>
+</html>
