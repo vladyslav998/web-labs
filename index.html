@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Навчальний портфоліо-проєкт із лабораторних робіт з HTML, CSS та JavaScript/TypeScript."
+    />
+    <meta name="theme-color" content="#101016" />
+    <title>Web Development</title>
+    <link rel="stylesheet" href="site.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-shell site-header__inner">
+        <a class="site-brand" href="index.html">Web Development</a>
+        <nav class="site-nav" aria-label="Основна навігація">
+          <ul class="site-nav__list">
+            <li><a href="index.html" aria-current="page">Усі лабораторні</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-shell site-main" id="main">
+      <header class="page-intro">
+        <p class="eyebrow">HTML · CSS · JavaScript · TypeScript</p>
+        <h1>Лабораторні роботи</h1>
+        <p>Навчальні завдання, дослідження та практичні проєкти курсу Web Development.</p>
+      </header>
+
+      <section aria-labelledby="labs-title">
+        <h2 id="labs-title">Виконані роботи</h2>
+        <div class="card-grid">
+          <a class="card card--link" href="lab1/index.html">
+            <h3 class="card__title">Лабораторна робота №1</h3>
+            <p>Початок роботи з HTML, CSS та інструментами веброзробки.</p>
+            <span>Відкрити лабораторну →</span>
+          </a>
+          <a class="card card--link" href="lab2/index.html">
+            <h3 class="card__title">Лабораторна робота №2</h3>
+            <p>Основи CSS, серія експериментів і адаптивна секція тарифів.</p>
+            <span>Відкрити лабораторну →</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell site-footer__inner">
+        <p>Навчальний проєкт · Web Development</p>
+        <p>Оновлюється в міру виконання курсу</p>
+      </div>
+    </footer>
+  </body>
+</html>

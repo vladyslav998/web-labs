@@ -1,0 +1,185 @@
+:root {
+  --demo-card-background: #191720;
+  --demo-card-color: #f3eef5;
+  --demo-card-border: #393241;
+}
+
+.experiment {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  background: var(--color-surface);
+}
+
+.experiment h2 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-pink);
+}
+
+.demo-zone {
+  margin-block: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: var(--border-width) dashed var(--color-border);
+  border-radius: var(--border-radius-small);
+  background: var(--color-demo-background);
+}
+
+.demo-zone--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.demo-zone--stack {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.observation {
+  margin: var(--spacing-md) 0 0;
+  padding: var(--spacing-md);
+  border-left: 3px solid var(--color-pink);
+  border-radius: 0 var(--border-radius-small) var(--border-radius-small) 0;
+  background: var(--color-surface-raised);
+  color: var(--color-muted);
+}
+
+.observation strong {
+  color: var(--color-text);
+}
+
+code {
+  padding: 0.1em 0.35em;
+  border-radius: 0.3em;
+  background: var(--color-surface-raised);
+  color: var(--color-purple);
+  font-size: 0.92em;
+}
+
+.box {
+  display: grid;
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border: 5px solid #c7c3ca;
+  place-items: center;
+  font-size: var(--font-size-small);
+}
+
+.box--content {
+  box-sizing: content-box;
+  background: rgb(255 80 80 / 20%);
+}
+
+.box--border {
+  box-sizing: border-box;
+  background: rgb(80 220 120 / 20%);
+}
+
+/* Перше правило зовнішнього файлу. */
+.cascade-demo {
+  color: #8b5cf6;
+}
+
+/* Той самий селектор: пізніше правило зовнішнього файлу перемагає перше. */
+.cascade-demo {
+  color: #58a6ff;
+}
+
+#spec-id {
+  color: var(--color-pink);
+}
+
+.class1.class2.class3.class4.class5 {
+  color: var(--color-purple);
+}
+
+.specificity-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+}
+
+.specificity-image {
+  overflow: hidden;
+  margin: 0;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-small);
+  background: var(--color-surface);
+}
+
+.specificity-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.specificity-image figcaption {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-top: var(--border-width) solid var(--color-border);
+  color: var(--color-muted);
+  font-size: var(--font-size-small);
+}
+
+.inherit-demo button {
+  font-family: inherit;
+}
+
+.inherit-demo a {
+  color: LinkText;
+}
+
+.inherit-demo .inherit-link {
+  color: inherit;
+}
+
+.demo-card {
+  padding: var(--spacing-md);
+  border: var(--border-width) solid var(--demo-card-border);
+  border-radius: var(--border-radius-small);
+  background: var(--demo-card-background);
+  color: var(--demo-card-color);
+}
+
+.demo-card--custom {
+  --demo-card-background: #0d1117;
+  --demo-card-color: #7ee787;
+  --demo-card-border: #238636;
+}
+
+.demo-button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius-small);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.demo-button:active {
+  transform: scale(0.95);
+}
+
+.demo-button:hover {
+  border-color: var(--color-pink);
+}
+
+.demo-button--primary {
+  border-color: var(--color-pink);
+  background: var(--color-pink);
+  color: var(--color-background);
+}
+
+.demo-button--outline {
+  border-color: var(--color-pink);
+  background: transparent;
+  color: var(--color-pink);
+}

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Експерименти з Box Model, каскадом, специфічністю, успадкуванням і CSS-змінними."
+    />
+    <meta name="theme-color" content="#101016" />
+    <title>Експерименти CSS · Лабораторна робота №2</title>
+    <link rel="stylesheet" href="../site.css" />
+    <link rel="stylesheet" href="experiments.css" />
+    <style>
+      .cascade-demo {
+        color: var(--color-pink);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="skip-link" href="#main">Перейти до вмісту</a>
+      <div class="site-shell site-header__inner">
+        <a class="site-brand" href="../index.html">Web Development</a>
+        <nav class="site-nav" aria-label="Основна навігація">
+          <ul class="site-nav__list">
+            <li><a href="../index.html">Усі лабораторні</a></li>
+            <li><a href="index.html">Лабораторна 2</a></li>
+            <li><a href="experiments.html" aria-current="page">Експерименти</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-shell site-main" id="main">
+      <header class="page-intro">
+        <p class="eyebrow">Лабораторна робота · 02</p>
+        <h1>Експерименти CSS</h1>
+        <p>
+          Невеликі демонстрації Box Model, Cascade, Specificity, Inheritance, CSS Variables та
+          повторного використання стилів.
+        </p>
+      </header>
+
+      <section class="experiment" aria-labelledby="box-model-title">
+        <h2 id="box-model-title">1. Box Model</h2>
+        <p>
+          Блоки мають <code>width: 200px</code>, <code>height: 100px</code>, однакові padding і
+          border. У першого задано <code>content-box</code>, у другого — <code>border-box</code>.
+        </p>
+        <div class="demo-zone demo-zone--row">
+          <div class="box box--content">content-box</div>
+          <div class="box box--border">border-box</div>
+        </div>
+        <p class="observation">
+          <strong>Спостереження.</strong> У <code>content-box</code> padding і border збільшують
+          зовнішній розмір. У <code>border-box</code> вони входять у задані 200 × 100 px. Спільне
+          правило для сторінки встановлює <code>border-box</code>; цей приклад локально його
+          перевизначає, щоб показати різницю.
+        </p>
+      </section>
+
+      <section class="experiment" aria-labelledby="cascade-title">
+        <h2 id="cascade-title">2. Cascade</h2>
+        <p>
+          Для одного елемента визначено однаково специфічний селектор у зовнішньому CSS двічі та в
+          цьому <code>&lt;style&gt;</code>. Порівняйте, яке значення перемагає.
+        </p>
+        <div class="demo-zone"><p class="cascade-demo">Перемагає пізніше правило</p></div>
+        <p class="observation">
+          <strong>Спостереження.</strong> Спершу перемагає друге правило у зовнішньому файлі через
+          порядок оголошення. Правило в <code>&lt;style&gt;</code> розташоване після зовнішнього
+          файлу та має таку саму специфічність, тому його рожевий колір перемагає.
+        </p>
+      </section>
+
+      <section class="experiment" aria-labelledby="specificity-title">
+        <h2 id="specificity-title">3. Specificity</h2>
+        <p>Порівняння селектора ID із ланцюжком із п’яти класів у DevTools.</p>
+        <div class="demo-zone demo-zone--stack">
+          <p id="spec-id" class="class1 class2 class3 class4 class5">Колір визначає селектор ID</p>
+        </div>
+        <div class="observation">
+          <p><strong>Спостереження.</strong></p>
+
+          <div class="specificity-images">
+            <figure class="specificity-image">
+              <img src="attachment/Specificity1.jpg" alt="DevTools показує правило селектора ID" />
+              <figcaption>Styles: правило за ID</figcaption>
+            </figure>
+            <figure class="specificity-image">
+              <img
+                src="attachment/Specificity2.jpg"
+                alt="DevTools показує ланцюжок класів і його специфічність"
+              />
+              <figcaption>Styles: правило за класами перекреслене</figcaption>
+            </figure>
+          </div>
+          <p>
+            Специфічність <code>#spec-id</code> дорівнює (1, 0, 0), а п’ять класів мають (0, 5, 0).
+            ID перемагає; для звичайних компонентних стилів краще використовувати класи та помірну
+            специфічність.
+          </p>
+        </div>
+      </section>
+
+      <section class="experiment" aria-labelledby="inheritance-title">
+        <h2 id="inheritance-title">4. Inheritance</h2>
+        <p>Шрифт і базовий колір задані один раз на рівні <code>body</code>.</p>
+        <div class="demo-zone inherit-demo">
+          <p>Цей параграф успадковує від body шрифт і базовий колір.</p>
+          <p>
+            <a href="#inheritance-title">Це посилання успадковує шрифт, але має колір браузера.</a>
+          </p>
+          <button type="button">Кнопка успадковує лише шрифт.</button>
+          <p>
+            <a class="inherit-link" href="#inheritance-title"
+              >Це посилання також успадковує колір.</a
+            >
+          </p>
+        </div>
+        <p class="observation">
+          <strong>Спостереження.</strong> Перше посилання зберігає браузерний колір, а кнопка —
+          браузерне оформлення кнопки; лише шрифт кнопки явно успадковується через
+          <code>font-family: inherit</code>. Останнє посилання явно успадковує колір через
+          <code>color: inherit</code>.
+        </p>
+      </section>
+
+      <section class="experiment" aria-labelledby="variables-title">
+        <h2 id="variables-title">5. CSS Variables</h2>
+        <p>Змінні теми оголошені в <code>:root</code>; компонент може локально перевизначити їх.</p>
+        <div class="demo-zone demo-zone--stack">
+          <div class="demo-card">Звичайна картка використовує змінні теми.</div>
+          <div class="demo-card demo-card--custom">Картка з локальними змінними.</div>
+        </div>
+        <p class="observation">
+          <strong>Спостереження.</strong> Змінні з <code>:root</code> доступні нащадкам. Локальне
+          перевизначення впливає на компонент і його вміст, що допомагає створювати варіанти без
+          дублювання базового правила.
+        </p>
+      </section>
+
+      <section class="experiment" aria-labelledby="reuse-title">
+        <h2 id="reuse-title">6. Повторне використання стилів</h2>
+        <p>Спільний клас <code>.demo-button</code> задає основу, модифікатори змінюють варіант.</p>
+        <div class="demo-zone demo-zone--row">
+          <button class="demo-button" type="button">Звичайна</button>
+          <button class="demo-button demo-button--primary" type="button">Primary</button>
+          <button class="demo-button demo-button--outline" type="button">Outline</button>
+        </div>
+        <p class="observation">
+          <strong>Спостереження.</strong> Спільний клас зменшує повтори; модифікатори задають тільки
+          відмінності між варіантами.
+        </p>
+      </section>
+
+      <a class="back-link" href="index.html">← До розділів лабораторної №2</a>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-shell site-footer__inner">
+        <p>Навчальний проєкт · Web Development</p>
+        <p>Експерименти для лабораторної роботи №2</p>
+      </div>
+    </footer>
+  </body>
+</html>
