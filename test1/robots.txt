@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vladyslav998.github.io/web-labs/test1/sitemap.xml
