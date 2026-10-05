@@ -9,7 +9,7 @@ const setMenuState = (isOpen) => {
   menu.classList.toggle('is-open', isOpen);
   menuButton.setAttribute('aria-expanded', String(isOpen));
   menuButton.setAttribute('aria-label', isOpen ? 'Закрити меню' : 'Відкрити меню');
-}
+};
 
 menuButton?.addEventListener('click', () => {
   const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
