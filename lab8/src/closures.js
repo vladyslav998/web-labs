@@ -13,7 +13,22 @@
  * @returns {Counter}
  */
 export function createCounter(start = 0) {
-  throw new Error('Not implemented');
+  const initialValue = start;
+  let currentValue = initialValue;
+
+  return {
+    increment() {
+      currentValue += 1;
+      return currentValue;
+    },
+    reset() {
+      currentValue = initialValue;
+      return currentValue;
+    },
+    value() {
+      return currentValue;
+    },
+  };
 }
 
 /**
@@ -25,7 +40,20 @@ export function createCounter(start = 0) {
  * @returns {F}
  */
 export function once(fn) {
-  throw new Error('Not implemented');
+  let called = false;
+  /** @type {ReturnType<F>} */
+  let firstResult;
+
+  return /** @type {F} */ (
+    function (...args) {
+      if (!called) {
+        // Позначаємо виклик до запуску fn, щоб навіть виняток не спричинив повторний запуск.
+        called = true;
+        firstResult = fn.apply(this, args);
+      }
+      return firstResult;
+    }
+  );
 }
 
 /**
@@ -37,5 +65,14 @@ export function once(fn) {
  * @returns {(arg: T) => R}
  */
 export function memoize(fn) {
-  throw new Error('Not implemented');
+  /** @type {Map<T, R>} */
+  const cache = new Map();
+
+  return function (arg) {
+    if (cache.has(arg)) return cache.get(arg);
+
+    const result = fn.call(this, arg);
+    cache.set(arg, result);
+    return result;
+  };
 }
